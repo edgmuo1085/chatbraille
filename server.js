@@ -8,7 +8,7 @@ const io = require('socket.io')(server, {serveClient: true});
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
-const port = process.env.PORT || 7777;
+const port = process.env.PORT || 8080;
 
 const passport = require('passport');
 const { Strategy } = require('passport-jwt');
