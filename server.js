@@ -20,7 +20,7 @@ passport.use(new Strategy(jwt, function(jwt_payload, done) {
     done();
 }));
 
-mongoose.connect('mongodb://localhost:27017/chatik', { useNewUrlParser: true });
+mongoose.connect('mongodb://localhost:27017/chat_braille', { useCreateIndex: true, useNewUrlParser: true });
 mongoose.Promise = require('bluebird');
 mongoose.set('debug', true);
 

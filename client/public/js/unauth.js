@@ -31,6 +31,7 @@ $('form').on('submit', e => {
         type: 'POST',
         data: {
             username: $(selector + ' [name=username]').val(),
+            email: $(selector + ' [name=email]').val(),
             password: $(selector + ' [name=password]').val()
         },
         beforeSend: () => {

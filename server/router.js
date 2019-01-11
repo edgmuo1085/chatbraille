@@ -51,10 +51,13 @@ module.exports = app => {
     app.post('/register', async (req, res) => {
         try {
             let user = await UsersModel.findOne({username: {$regex: _.escapeRegExp(req.body.username), $options: "i"}}).lean().exec();
-            if(user != void(0)) return res.status(400).send({message: "User already exist"});
+            let email = await UsersModel.findOne({email: {$regex: _.escapeRegExp(req.body.email), $options: "i"}}).lean().exec();
+            if(user != void(0)) return res.status(400).send({message: "Este nombre de usuario ya existe"});
+            if(email != void(0)) return res.status(400).send({message: "Este email ya existe"});
 
             user = await UsersModel.create({
                 username: req.body.username,
+                email: req.body.email,
                 password: req.body.password
             });
 
