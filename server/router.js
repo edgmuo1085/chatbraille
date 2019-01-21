@@ -52,13 +52,16 @@ module.exports = app => {
         try {
             let user = await UsersModel.findOne({username: {$regex: _.escapeRegExp(req.body.username), $options: "i"}}).lean().exec();
             let email = await UsersModel.findOne({email: {$regex: _.escapeRegExp(req.body.email), $options: "i"}}).lean().exec();
+            let nacimiento = await UsersModel.findOne({nacimiento: {$regex: _.escapeRegExp(req.body.nacimiento), $options: "i"}}).lean().exec();
             if(user != void(0)) return res.status(400).send({message: "Este nombre de usuario ya existe"});
             if(email != void(0)) return res.status(400).send({message: "Este email ya existe"});
+            if(nacimiento != void(0)) return res.status(400).send({message: "Digite una fecha de nacimiento"});
 
             user = await UsersModel.create({
                 username: req.body.username,
                 email: req.body.email,
-                password: req.body.password
+                password: req.body.password,
+                nacimiento: req.body.nacimiento
             });
 
             const token = createToken({id: user._id, username: user.username});

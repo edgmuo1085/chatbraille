@@ -33,7 +33,8 @@ $('form').on('submit', e => {
         data: {
             username: $(selector + ' [name=username]').val(),
             email: $(selector + ' [name=email]').val(),
-            password: $(selector + ' [name=password]').val()
+            password: $(selector + ' [name=password]').val(),
+            nacimiento: $(selector + ' [name=nacimiento]').val()
         },
         beforeSend: () => {
             $(selector + ' button').prop('disabled', true);
