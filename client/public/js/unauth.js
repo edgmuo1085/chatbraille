@@ -39,6 +39,7 @@ $('form').on('submit', e => {
         },
         success: (res) => {
             alert(response(res));
+            //$('#msg').append('Usuario registrado con exito!');
             location.reload();
         },
         error: (res) => {
