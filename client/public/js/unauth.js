@@ -29,6 +29,7 @@ $('form').on('submit', e => {
     $.ajax({
         url: '/' + value,
         type: 'POST',
+        data: $('#register').serialize(),
         data: {
             username: $(selector + ' [name=username]').val(),
             email: $(selector + ' [name=email]').val(),
@@ -38,12 +39,15 @@ $('form').on('submit', e => {
             $(selector + ' button').prop('disabled', true);
         },
         success: (res) => {
-            alert(response(res));
-            //$('#msg').append('Usuario registrado con exito!');
+            $('#msg').empty();
+            //alert(response(res));
+            $('#msg').append(response(res));
             location.reload();
         },
         error: (res) => {
-            alert(response(res));
+            $('#msg').empty();
+            //alert(response(res));
+            $('#msg').append(response(res));
         },
         complete: () => {
             $(selector + ' button').prop('disabled', false);
