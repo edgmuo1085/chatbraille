@@ -2,38 +2,29 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>.:: Chat Braille ::.</title>
+    <title>Node chat</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js'></script>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
     <link rel="stylesheet" href="./assets/css/style.css">
-
     {% if not error %}
         <script src='/socket.io/socket.io.js'></script>
     {% endif %}
 </head>
 <body>
-    <section class="container-fluid">
-        
     {% if error %}
-        <!-- 
-        <h3 class="error">  </h3>
-        -->
-        <div id="alert-msg" class="alert alert-danger app-hide" role="alert"><strong id="msg">{{ error }}</strong></div>
+        <!-- -->
+        <h3 class="error"> {{ error }} </h3>
         <div class="login-page">
             <div class="form">
                 <div style="margin-top: 18px;">
                     <form class="register" method="post" style="display: none;">
-                    <!-- ******* REGISTRARSE ******* -->
                         <input type="text" name="username" placeholder="username"/>
                         <input type="email" name="email" placeholder="username"/>
                         <input type="password" name="password" placeholder="password"/>
                         <button type="submit">Crear</button>
                         <p class="message">Tienes cuenta? <a href="#">Ingresar</a></p>
                     </form>
-
                     <form class="login" method="post">
-                    <!-- ******* INGRESAR ******* -->
                         <input type="text" name="username" placeholder="username"/>
                         <input type="password" name="password" placeholder="password"/>
                         <button type="submit">Ingresar</button>
@@ -68,6 +59,5 @@
         </div>
         <script src="/assets/js/auth.js"></script>
     {% endif %}
-    </section>
 </body>
 </html>
