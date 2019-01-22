@@ -31,6 +31,10 @@ module.exports = app => {
         res.render('home.html');
     });
 
+    app.get('/formularios', (req, res) => {
+        res.render('formularios.html');
+    });
+
     app.get('/chat', checkAuth, (req, res) => {
         res.render('chat.html', { username: req.user.username });
     });
