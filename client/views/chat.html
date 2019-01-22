@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>.:: Chat Braille ::.</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>-->
+    <script src="http://code.jquery.com/jquery-1.11.1.js"></script>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <link rel="stylesheet" href="./assets/css/main.css">
+
+    {% if not error %}
+        <script src="/socket.io/socket.io.js"></script>
+    {% endif %}
+</head>
+<body>
+    {% if error %}
+    <section class="container">
+        <div class="row justify-content-center">
+            <div class="col-12 col-sm-8 col-md-8">
+                <p id="msg" class="alert alert-danger" role="alert">{{ error }}<p>
+                    <a href="/">Inicio</a>
+                <div class="login-page">
+                    <div class="form">
+                        <div class="register" style="display: none;">
+<!-- **************************** REGISTRARSE **************************** -->
+                            <form id="register" method="post" data-toggle="validator" autocomplete="off" role="form">
+                                <h2>Regístrate para el Chat</h2>
+                                <div class="form-group required">
+                                    <label for="username">Nombre de usuario</label>
+                                    <input class="form-control" type="text" id="username" name="username" placeholder="Elige un nombre de usuario" required="" >
+                                    <div class="help-block with-errors"></div>
+                                </div>
+                                <div class="form-group required">
+                                    <label for="password">Contraseña</label>
+                                    <input class="form-control" type="password" id="password" name="password" placeholder="Digite una contraseña" required="" >
+                                    <div class="help-block with-errors"></div>
+                                </div>
+                                <div class="form-group required">
+                                    <label for="email">Dirección de correo electrónico</label>
+                                    <input class="form-control" type="email" id="email" name="email" placeholder="Digite un correo electrónico" required="" >
+                                    <div class="help-block with-errors"></div>
+                                </div>
+                                <div class="form-group required">
+                                    <label class="control-label" for="email-confirmar">Dirección de correo (de nuevo)</label>
+                                    <input id="email-confirmar" data-match="#email" data-match-error="El correo no coincide" placeholder="Dirección de correo (de nuevo)" type="email" class="form-control" required />
+                                    <div class="help-block with-errors"></div>
+                                </div>
+                                <div class="form-group required">
+                                    <label class="control-label" for="nacimiento">Fecha de nacimiento</label>
+                                    <div class="input-group date" id="fechaNacimiento">
+                                        <input type="text" class="form-control" name="nacimiento" id="nacimiento" placeholder="dd/mm/aaaa" required="" />
+                                        <span class="input-group-addon"></span>
+                                        <div class="help-block with-errors"></div>
+                                    </div>
+                                </div>
+                                <div class="form-group required">
+                                    <button type="submit" class="btn btn-primary" id="signupBtn" name="submit">Regístrate</button>
+                                </div>
+                                <p class="message">Tienes cuenta? <a href="#">Ingresar</a></p>
+                            </form>
+                        </div>
+                        <div class="login">
+<!-- **************************** INGRESAR **************************** -->
+                            <form method="post" data-toggle="validator" autocomplete="off" role="form">
+                                <div class="form-group">
+                                    <label for="name">Nombre de usuario</label>
+                                    <input class="form-control" type="text" id="name" name="username" placeholder="Nombre de usuario" required="" >
+                                </div>
+                                <div class="form-group">
+                                    <label for="pass">Contraseña</label>
+                                    <input class="form-control" type="password" id="pass" name="password" placeholder="Contraseña" required="" >
+                                </div>
+                                <div class="form-group">
+                                    <button class="btn btn-primary" type="submit" name="submit">Ingresar</button>
+                                </div>
+                                <p class="message">No esta registrado? <a href="#">Crear cuenta</a></p>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <script src="/assets/js/unauth.js"></script>
+                <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+                <script src="/assets/js/validator.min.js"></script>
+                <script type="text/javascript">
+                    $(function() {
+                        $("#nacimiento").datepicker({
+                            changeMonth: true,
+                            changeYear: true
+                        });
+                    });
+                </script>
+            </div>
+        </div>
+    </section>
+    {% else %}
+    <section class="container">
+        <div class="row justify-content-center clearfix">
+            <div class="chat">
+                <div class="chat-header clearfix">
+                    <div class="chat-about">
+                        <div class="chat-num-users">Hola, <span id="name">{{ username }}</span></div>
+                    </div>
+                    <div class="controls">
+                        <a href="#" class="logout-btn">Salir</a>
+                    </div>
+                </div>
+
+                <div class="chat-history">
+                    <ul>
+                    </ul>
+                </div>
+
+                <div class="chat-message clearfix">
+                    <textarea name="message" placeholder ="Type your message" rows="3"></textarea>
+                    <button type="submit">Enviar</button>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script src="/assets/js/auth.js"></script>
+    {% endif %}
+            
+</body>
+</html>
