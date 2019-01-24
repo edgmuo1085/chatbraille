@@ -19,7 +19,8 @@ $(".logout-btn").on('click', e => {
         data: {},
         success: (res) => {
             alert(response(res));
-            location.reload();
+            //location.reload();
+            location.href = '/';
         },
         error: (res) => {
             alert(response(res));

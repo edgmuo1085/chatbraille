@@ -43,7 +43,8 @@ $('form').on('submit', e => {
             $('#msg').empty();
             //alert(response(res));
             $('#msg').append(response(res));
-            location.reload();
+            //location.reload();
+            location.href = 'chat';
         },
         error: (res) => {
             $('#msg').empty();
