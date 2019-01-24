@@ -24,9 +24,8 @@ function response (data) {
 
 $('form').on('submit', e => {
     e.preventDefault();
-    let value = $(e.target).attr('class');
-    //let selector = '.' + value;
-    let selector = '.chat';
+    let value = $(e.target).attr('id');
+    let selector = '#' + value;
     $.ajax({
         url: '/' + value,
         type: 'POST',
