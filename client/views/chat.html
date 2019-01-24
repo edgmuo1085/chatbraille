@@ -19,13 +19,12 @@
     {% if error %}
     <section class="container">
         <div class="row justify-content-center">
-            <div class="col-12 col-sm-8 col-md-8">
+            <div class="col-xs-12 col-sm-8 col-md-8">
                 <p id="msg" class="alert alert-danger" role="alert">{{ error }}<p>
                     <a href="/">Inicio</a>
                 <div class="login-page">
                     <div class="form">
                         <div class="register" style="display: none;">
-<!-- **************************** REGISTRARSE **************************** -->
                             <form id="register" method="post" data-toggle="validator" autocomplete="off" role="form">
                                 <h2>Regístrate para el Chat</h2>
                                 <div class="form-group required">
@@ -63,7 +62,6 @@
                             </form>
                         </div>
                         <div class="login">
-<!-- **************************** INGRESAR **************************** -->
                             <form id="login" method="post" data-toggle="validator" autocomplete="off" role="form">
                                 <div class="form-group">
                                     <label for="name">Nombre de usuario</label>
