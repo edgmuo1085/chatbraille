@@ -1,6 +1,11 @@
+.color-fondo {
+    position: relative;
+    background: rgba(100,100,100,.6);
+}
+/*
 
 .users-list {
-    width: 270px;
+    width: 500px;
     float: left;
 }
 .users-list .search {
@@ -91,7 +96,7 @@
     line-height: 26px;
     font-size: 16px;
     margin-bottom: 30px;
-    /*width: 90%;*/
+    /*width: 90%;
     position: relative;
 }
 .chat .chat-history .message:after {
@@ -158,3 +163,4 @@
     clear: both;
     height: 0;
 }
+*/
