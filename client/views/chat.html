@@ -21,6 +21,7 @@
         <script src="/socket.io/socket.io.js"></script>
     {% endif %}
 </head>
+{% if error %}
 <body class="login-page sidebar-collapse">
 	<nav class="navbar navbar-transparent navbar-color-on-scroll fixed-top navbar-expand-lg" color-on-scroll="100" id="sectionsNav">
 		<div class="container">
@@ -53,10 +54,8 @@
 	</nav>
 	<div class="page-header header-filter" style="background-image: url('./assets/img/fondo-chatbraille.jpg'); background-size: cover; background-position: top center;">
 		<div class="container">
-{% if error %}
 	  		<div class="row">
 				<div class="col-lg-4 col-md-6 ml-auto mr-auto">
-
 					<div class="formulario">
 			  			<div class="card card-login login">
 							<form id="login" class="form" method="post" data-toggle="validator" autocomplete="off" role="form">
@@ -139,78 +138,107 @@
 	                        </form>
 	                    </div>
 					</div>
-
 				</div>
-			</div>
-			<script src="./assets/js/unauth.js"></script>
-{% else %}
-			
-			<div class="row">
-				<div class="col-12 offset-md-9 col-md-3 offset-sm-7 col-sm-3">
-					<button class="logout-btn text-center btn btn-primary">Cerrar sesión</button>
-				</div>
-			</div>
-		<div class="color-fondo">
-			<div class="row">	
-				<div class="col-lg-5 col-md-5 ml-auto mr-auto">
-					<div class="chat-header color-fondo1">
-	                    <div class="chat-about">
-	                        <div class="chat-num-users">Hola, <span id="name">{{ username }}</span></div>
-	                    </div>
-	                </div>
-				</div>
-				<div class="col-lg-5 col-md-5 ml-auto mr-auto">
-					<div class="chat-history">
-	                    <ul>
-	                    </ul>
-	                </div>
-
-	                <div class="chat-message color-fondo2">
-	                    <textarea name="message" placeholder ="Type your message" rows="3"></textarea>
-	                    <button type="submit">Enviar</button>
-	                </div>
-				</div>
-			<!--
-				<div class="row">
-					<section class="col-xs-12 col-sm-4">
-						<article class="online-users">
-							<br><h4>Online users:</h4>
-							<div class="online-userslist"></div>
-						</article>
-					</section>
-					<div class="col-xs-12 col-sm-8">
-						<aside class="messages">
-							<div id="list-msgs" class="height-messages"></div>
-							<div class="form-group required">
-								<textarea class="form-control" id="new-msg" placeholder="Nuevo mensaje"></textarea>
-							</div>
-						</aside>
-					</div>
-				</div>
-
-				
-	        -->
 			</div>
 		</div>
+	</div>
+	<script src="./assets/js/unauth.js"></script>
+{% else %}
+
+<body class="profile-page sidebar-collapse">
+ 	<nav class="navbar navbar-transparent navbar-color-on-scroll fixed-top navbar-expand-lg" color-on-scroll="100" id="sectionsNav">
+		<div class="container">
+			<div class="navbar-translate">
+				<a class="navbar-brand" href="/">
+					<img src="./assets/img/logo-cb2.png" width="150">
+				</a>
+				<button class="navbar-toggler" type="button" data-toggle="collapse" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="navbar-toggler-icon"></span>
+					<span class="navbar-toggler-icon"></span>
+					<span class="navbar-toggler-icon"></span>
+				</button>
+			</div>
+			<div class="collapse navbar-collapse">
+				<ul class="navbar-nav ml-auto">
+					<li class="nav-item">
+						<a class="nav-link" title="{{ username }}" href="#">
+							<i class="material-icons">person_pin</i>{{ username }}
+						</a>
+					</li><!-- -->
+					<li class="nav-item">
+						<a class="nav-link logout-btn" title="Cerrar sesión" href="#">
+							<i class="material-icons">cancel</i>Cerrar sesión
+						</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+	<div class="page-header header-filter" data-parallax="true" style="background-image: url('./assets/img/fondo-chatbraille.jpg');"></div>
+	<div class="main main-raised">
+		<div class="profile-content">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-6 ml-auto mr-auto">
+						<div class="profile">
+							<div class="avatar">
+								<img src="./assets/img/avatar.jpg" alt="Circle Image" class="img-raised rounded-circle img-fluid">
+							</div>
+							<div class="name">
+								<h3 class="title">Christian Louboutin</h3>
+								<h6>Designer</h6>
+								<a href="#pablo" class="btn btn-just-icon btn-link btn-dribbble"><i class="fa fa-dribbble"></i></a>
+								<a href="#pablo" class="btn btn-just-icon btn-link btn-twitter"><i class="fa fa-twitter"></i></a>
+								<a href="#pablo" class="btn btn-just-icon btn-link btn-pinterest"><i class="fa fa-pinterest"></i></a>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="description text-center">
+					<p>An artist of considerable range, Chet Faker &#x2014; the name taken by Melbourne-raised, Brooklyn-based Nick Murphy &#x2014; writes, performs and records all of his own music, giving it a warm, intimate feel with a solid groove structure. </p>
+				</div>
+				<div class="row">	
+					<div class="col-lg-5 col-md-5 ml-auto mr-auto">
+		                <div class="chat-message">
+							<div class="form-group">
+								<label for="exampleMessage" class="bmd-label-floating">Escribe tu mensaje</label>
+								<textarea type="text" name="message" class="form-control" rows="4" id="exampleMessage"></textarea>
+							</div>
+		                    <button class="btn btn-primary btn-raised" type="submit">Enviar</button>
+		                </div>
+					</div>
+					<div class="col-lg-5 col-md-5 ml-auto mr-auto">
+						<div class="clearfix">
+							<div class="chat-history">
+			                    <ul>
+			                    </ul>
+			                </div>
+						</div>
+		            </div>
+				</div>
+			</div>
+		</div>
+	</div>
 		<script src="/assets/js/auth.js"></script>
 {% endif %}
 
-		</div>
-		<footer class="footer footer-default">
-			<div class="container">
-				<nav class="float-left">
-					<ul>
-						<li><a href="#">Créditos</a></li>
-					</ul>
-				</nav>
-				<div class="copyright float-right">
-					&copy; <script>
-						document.write(new Date().getFullYear())
-					</script>, made with <i class="material-icons">favorite</i> by <a href="https://www.creative-tim.com" target="_blank">Creative Tim</a> for a better web.
-				</div>
+		
+	<footer class="footer footer-default">
+		<div class="container">
+			<nav class="float-left">
+				<ul>
+					<li><a href="#">Créditos</a></li>
+				</ul>
+			</nav>
+			<div class="copyright float-right">
+				&copy; <script>
+					document.write(new Date().getFullYear())
+				</script>, made with <i class="material-icons">favorite</i> by <a href="https://www.creative-tim.com" target="_blank">Creative Tim</a> for a better web.
 			</div>
-		</footer>
-	</div>
+		</div>
+	</footer>
+	
 	<!--   Core JS Files   -->
 	<script src="./assets/js/core/jquery.min.js" type="text/javascript"></script>
 	<script src="./assets/js/core/popper.min.js" type="text/javascript"></script>
