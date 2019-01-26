@@ -73,7 +73,8 @@ $( document ).ready( () => {
                 <div class="message my-message" dir="auto">${message.content}</div>
             </li>`;
 
-        $(html).hide().appendTo('.chat-history ul').slideDown(200);
+        //$(html).hide().appendTo('.chat-history ul').slideDown(200);
+        $(html).hide().prependTo('.chat-history ul').slideDown(200);
 
         $(".chat-history").animate({ scrollTop: $('.chat-history')[0].scrollHeight}, 1000);
     }
