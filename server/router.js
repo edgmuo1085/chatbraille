@@ -44,11 +44,11 @@ module.exports = app => {
                     httpOnly: true
                 });
 
-                res.status(200).send({message: "User login success."});
-            } else res.status(400).send({message: "User not exist or password not correct"});
+                res.status(200).send({message: "Usuario logeado."});
+            } else res.status(400).send({message: "Usuario no existe o contraseña incorrecta"});
         } catch (e) {
             console.error("E, login,", e);
-            res.status(500).send({message: "some error"});
+            res.status(500).send({message: "Error 500"});
         }
     });
 
@@ -74,16 +74,16 @@ module.exports = app => {
                 httpOnly: true
             });
 
-            res.status(200).send({message: "User created."});
+            res.status(200).send({message: "Usuario creado."});
 
         } catch (e) {
             console.error("E, register,", e);
-            res.status(500).send({message: "some error"});
+            res.status(500).send({message: "Error 500"});
         }
     });
 
     app.post('/logout', (req, res) => {
         res.clearCookie('token');
-        res.status(200).send({message: "Logout success."});
+        res.status(200).send({message: "Saliendo..."});
     })
 };

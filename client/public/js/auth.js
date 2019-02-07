@@ -29,7 +29,7 @@ $(".logout-btn").on('click', e => {
 });
 
 $( document ).ready( () => {
-    var socket = io.connect('http://192.168.1.103:8080');
+    var socket = io.connect('http://localhost:8080');
     socket.on('connected', function (msg) {
         console.log(msg);
         socket.emit('receiveHistory');
