@@ -4,7 +4,7 @@ const express = require('express');
 const app = express();
 const nunjucks = require('nunjucks');
 const server = require('http').Server(app);
-const io = require('socket.io')(server, {serveClient: true});
+const io = require('socket.io')(server, { serveClient: true });
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
@@ -16,11 +16,11 @@ const { Strategy } = require('passport-jwt');
 const { jwt } = require('./server/config');
 
 passport.use(new Strategy(jwt, function(jwt_payload, done) {
-    if(jwt_payload != void(0)) return done(false, jwt_payload);
+    if (jwt_payload != void(0)) return done(false, jwt_payload);
     done();
 }));
 
-mongoose.connect('mongodb://localhost:27017/chat_braille', { useCreateIndex: true, useNewUrlParser: true });
+mongoose.connect('mongodb://localhost:27017/chat_braille', { useCreateIndex: true, useNewUrlParser: true, useUnifiedTopology: true });
 mongoose.Promise = require('bluebird');
 mongoose.set('debug', true);
 
@@ -42,5 +42,5 @@ require('./server/router')(app);
 require('./server/sockets')(io);
 
 server.listen(port, () => {
-	console.log(`Chat-Braille en funcionamiento en http://localhost:${port}`)
+    console.log(`Chat-Braille en funcionamiento en http://localhost:${port}`)
 });

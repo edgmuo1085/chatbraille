@@ -1,35 +1,36 @@
 {
-  "name": "chatBraille",
-  "version": "1.0.0",
-  "description": "NodeJS chatbraille",
-  "main": "server.js",
-  "scripts": {
-    "start": "nodemon server.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "keywords": [
-    "chat",
-    "socket.io",
-    "express"
-  ],
-  "author": "Yurii Chikhrai",
-  "license": "ISC",
-  "dependencies": {
-    "bcrypt": "^5.0.0",
-    "bluebird": "^3.7.2",
-    "body-parser": "^1.19.0",
-    "cookie-parser": "^1.4.5",
-    "express": "^4.17.1",
-    "jsonwebtoken": "^8.5.1",
-    "lodash": "^4.17.15",
-    "mongoose": "^5.9.18",
-    "mongoose-unique-validator": "^2.0.3",
-    "nunjucks": "^3.2.1",
-    "passport": "^0.4.1",
-    "passport-jwt": "^4.0.0",
-    "socket.io": "^2.3.0"
-  },
-  "devDependencies": {
-    "nodemon": "^2.0.4"
-  }
+    "name": "ChatBraille",
+    "version": "1.0.0",
+    "description": "NodeJS chatbraille",
+    "main": "server.js",
+    "scripts": {
+        "start": "nodemon server.js",
+        "m:remove": "rm -r node_modules",
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "keywords": [
+        "chat",
+        "socket.io",
+        "express"
+    ],
+    "author": "Yurii Chikhrai",
+    "license": "ISC",
+    "dependencies": {
+        "bcrypt": "^5.0.0",
+        "bluebird": "^3.7.2",
+        "body-parser": "^1.19.0",
+        "cookie-parser": "^1.4.5",
+        "express": "^4.17.1",
+        "jsonwebtoken": "^8.5.1",
+        "lodash": "^4.17.21",
+        "mongoose": "^5.13.4",
+        "mongoose-unique-validator": "^2.0.3",
+        "nunjucks": "^3.2.1",
+        "passport": "^0.4.1",
+        "passport-jwt": "^4.0.0",
+        "socket.io": "^2.4.1"
+    },
+    "devDependencies": {
+        "nodemon": "^2.0.4"
+    }
 }
